@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Withdraw</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+        }
+
+        #withdrawPage {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #334155;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #successPage {
+            display: none;
+            min-height: 100vh;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .success-box {
+            width: 450px;
+            background: white;
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 15px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .check {
+            font-size: 80px;
+            color: green;
+        }
+
+        .success-box h1 {
+            color: green;
+            font-size: 32px;
+        }
+
+        .amount {
+            font-size: 45px;
+            font-weight: bold;
+            color: #1e293b;
+            margin: 20px 0;
+        }
+
+        .success-box p {
+            font-size: 20px;
+            color: #475569;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            width: auto;
+            padding: 12px 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div id="withdrawPage">
+
+        <div class="container">
+
+            <h1>Withdraw</h1>
+
+            <form id="withdrawForm">
+
+                <label>Account Number</label>
+
+                <input type="text" id="account" placeholder="Enter Account Number" required>
+
+                <label>Amount</label>
+
+                <input type="number" id="amount" placeholder="Enter Amount" min="1" required>
+
+                <button type="submit">
+                    Withdraw
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="successPage">
+
+        <div class="success-box">
+
+            <div class="check">✓</div>
+
+            <h1>Payment Successful</h1>
+
+            <div class="amount">
+                ₹<span id="successAmount"></span>
+            </div>
+
+            <p>
+                Amount Withdraw Successfully
+            </p>
+
+            <button class="back-btn" onclick="goBack()">
+                Back to Withdraw
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        const form = document.getElementById("withdrawForm");
+
+        form.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const account =
+                document.getElementById("account").value;
+
+            const amount =
+                document.getElementById("amount").value;
+
+
+            if (account === "" || amount === "") {
+
+                alert("Please enter Account Number and Amount");
+
+                return;
+            }
+
+
+            document.getElementById("successAmount").innerText = amount;
+
+            document.getElementById("withdrawPage").style.display = "none";
+
+
+            document.getElementById("successPage").style.display = "flex";
+
+        });
+
+        function goBack() {
+
+            document.getElementById("successPage").style.display = "none";
+
+            document.getElementById("withdrawPage").style.display = "flex";
+
+            document.getElementById("withdrawForm").reset();
+
+        }
+
+    </script>
+
+</body>
+
+</html>

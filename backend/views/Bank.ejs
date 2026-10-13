@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bank Account</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #f5f7fa);
+        }
+
+        .bank-container {
+            width: 420px;
+            padding: 35px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .bank-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .student {
+            color: #1e3a8a;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+            height: 48px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button[value="New Account"] {
+            background-color: #28a745;
+        }
+
+        button[value="Deposit"] {
+            background-color: #007bff;
+        }
+
+        button[value="Withdraw"] {
+            background-color: #dc3545;
+        }
+
+        button[value="show"] {
+            background-color: #6f42c1;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="bank-container">
+
+        <div class="bank-icon">🏦</div>
+
+        <h2 class="student">BANK ACCOUNT</h2>
+
+        <p class="subtitle">Manage your bank account</p>
+
+        <div class="button-group">
+
+            <form action="/newaccount" method="GET">
+                <button type="submit" name="cmd" value="New Account">
+                    + New Account
+                </button>
+            </form>
+
+            <form action="/deposit" method="GET">
+                <button type="submit" name="cmd" value="Deposit">
+                    💰 Deposit
+                </button>
+            </form>
+
+            <form action="/withdraw" method="GET">
+                <button type="submit" name="cmd" value="Withdraw">
+                    💸 Withdraw
+                </button>
+            </form>
+
+            <form action="/show" method="GET">
+                <button type="submit" name="cmd" value="show">
+                    👁️ Show Account
+                </button>
+            </form>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

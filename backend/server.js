@@ -50,7 +50,7 @@ app.get('/test',(req,res)=>{
                 }
                 else
     res.send(cmd);
-    // res.json({message :'data insert success'});
+
 });
 
 
